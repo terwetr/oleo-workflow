@@ -1,0 +1,1 @@
+INSERT INTO PERSON (3, 'James');
