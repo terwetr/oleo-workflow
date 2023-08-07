@@ -1,0 +1,18 @@
+name: Create Artifact Demo
+on: push
+env:
+  ARTIFACT_NAME: 'demo-artifact.txt'
+jobs:
+  generate-artifact:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+
+    - run: mkdir -p path/to/artifact
+
+    - run: echo hello > path/to/artifact/${{ env.ARTIFACT_NAME }}
+
+    - uses: actions/upload-artifact@v3
+      with:
+        name: my-artifact
+        path: path/to/artifact/${{ env.ARTIFACT_NAME }}
