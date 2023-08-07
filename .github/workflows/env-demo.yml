@@ -1,0 +1,28 @@
+name: Environment Variable Demo
+on: push
+env:
+  WORKFLOW_VAR: Workflow Level
+  OVERRIDE_VAR: Workflow
+jobs:
+  job-1:
+    env:
+      WORKFLOW_VAR: Job Level
+      OVERRIDE_VAR: Job
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print Environment Variables
+        env:
+          STEP_VAR: Step Level
+          OVERRIDE_VAR: Step
+        run: |
+          echo "Shell Syntax..."
+          echo "1. $WORKFLOW_VAR"
+          echo "2. $JOB_VAR"
+          echo "3. $STEP_VAR"
+          echo "4. $OVERRIDE_VAR"
+          echo "----------------"
+          echo "YAML Syntax..."
+          echo "1. ${{ env.WORKFLOW_VAR }}"
+          echo "2. ${{ env.JOB_VAR }}"
+          echo "3. ${{ env.STEP_VAR }}"
+          echo "4. ${{ env.OVERRIDE_VAR }}"
