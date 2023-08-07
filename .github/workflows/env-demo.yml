@@ -6,7 +6,7 @@ env:
 jobs:
   job-1:
     env:
-      WORKFLOW_VAR: Job Level
+      JOB_VAR: Job Level
       OVERRIDE_VAR: Job
     runs-on: ubuntu-latest
     steps:
